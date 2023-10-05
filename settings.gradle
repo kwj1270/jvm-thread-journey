@@ -1,0 +1,15 @@
+rootProject.name = 'jvm-thread-journey'
+
+include(
+        "java-io-client",
+        "java-io-server",
+        "java-nio-client",
+        "java-nio-server",
+        "java-aio-client",
+        "java-aio-server",
+        "java-netty-server",
+        "java-netty-client",
+        "java-reactor-migration",
+        "reactor-pattern",
+        "proactor-pattern",
+)

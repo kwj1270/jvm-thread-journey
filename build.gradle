@@ -1,0 +1,42 @@
+plugins {
+    id "java"
+    id 'org.springframework.boot' version '3.1.2'
+    id 'io.spring.dependency-management' version '1.1.2'
+    id "me.champeau.jmh" version "0.7.1"
+}
+
+dependencies {
+    jmh 'commons-io:commons-io:2.11.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+allprojects {
+    group = 'com.poc'
+    version = '0.0.1-SNAPSHOT'
+
+    java {
+        sourceCompatibility = '17'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    plugins.apply("java")
+    plugins.apply("org.springframework.boot")
+    plugins.apply("io.spring.dependency-management")
+
+    dependencies {
+        implementation 'org.openjdk.jmh:jmh-core:1.36'
+        implementation 'org.openjdk.jmh:jmh-generator-annprocess:1.36'
+        implementation 'org.springframework.boot:spring-boot-starter'
+    }
+}
