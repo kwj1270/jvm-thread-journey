@@ -12,4 +12,5 @@ include(
         "java-reactor-migration",
         "reactor-pattern",
         "proactor-pattern",
+        "java-io-test",
 )
